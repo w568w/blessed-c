@@ -67,7 +67,7 @@ Common data structures.
 |Use Case|Recommended Tools|
 |---|---|
 |CSV|[**zsv**](https://github.com/liquidaty/zsv) <br> Fast (simd) CSV parser.|
-|JSON|[**json-c**](https://github.com/json-c/json-c) <br> A formal JSON parser for C, with multi-threaded support. <br> [**parson**](https://github.com/kgabis/parson) <br> Two-file, C89-compliant simple JSON parser. Suitable for embedded systems. <br> [**simdjson**](https://github.com/simdjson/simdjson) <br> Very fast JSON parser (simd), used by Node.js and a lot more. A C++-only library, but has a C wrapper at [simdjson_pas](https://github.com/pavelmash/simdjson_pas).|
+|JSON|[**cJSON**](https://github.com/DaveGamble/cJSON) <br> Two-file, ultralightweight JSON parser in C89. Suitable for embedded systems, not thread safe. <br> [**json-c**](https://github.com/json-c/json-c) <br> A formal JSON parser for C, with multi-threaded support.|
 |INI|[**inih**](https://github.com/benhoyt/inih) <br> Single header INI file parser, good for embedded systems.  |
 |YAML|[**libyaml**](https://github.com/yaml/libyaml) <br> Official YAML parser, but inactive for a while.|
 |TOML|[**tomlc99**](https://github.com/cktan/tomlc99) <br> C99-compliant TOML parser.|
