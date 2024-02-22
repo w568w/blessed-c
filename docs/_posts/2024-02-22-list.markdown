@@ -33,6 +33,18 @@ General use case.
 |UUIDs|[**uuid4**](https://github.com/rxi/uuid4) <br> Simple implementation of UUID v4. Unmaintained. |
 |Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library.|
 |Logging|[**zlog**](https://github.com/HardySimpson/zlog) <br> High-performance & thread safe logging library. POSIX/Windows compatible. <br> **syslog** <br> GNU C library's syslog helper functions. Available on most Un*x systems, and should be used if you are writing a OS-related tool.|
+|HTTP Request|[**libcurl**](https://curl.se/libcurl/) <br> The most widely used client-side URL transfer library.|
+
+</div>
+
+### Data Structures
+Common data structures.
+
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Generic Collections|[**Collections-C**](https://github.com/srdja/Collections-C) <br> Generic arrays, lists, hashmaps, and more. Use `void *` to store any type of data. <br> [**STC**](https://github.com/stclib/STC) <br> Similar to Collections-C, but uses macros  to simulate generics.|
 
 </div>
 
@@ -167,3 +179,10 @@ To Be Done
 ## Graphics
 
 To Be Done
+
+## Math / Scientific
+
+To Be Done
+
+## FFI / Interop
+
