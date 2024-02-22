@@ -55,7 +55,7 @@ General use case.
 |Use Case|Recommended Tools|
 |---|---|
 |CSV|[**zsv**](https://github.com/liquidaty/zsv) <br> Fast (simd) CSV parser.|
-|JSON|[**json.h**](https://github.com/sheredom/json.h) <br> Single header JSON parser. <br> [**parson**](https://github.com/kgabis/parson) <br> Two-file, C89-compliant JSON parser. <br> [**simdjson**](https://github.com/simdjson/simdjson) <br> Very fast JSON parser (simd), used by Node.js and a lot more. A C++-only library, but has a C wrapper at [simdjson_pas](https://github.com/pavelmash/simdjson_pas).|
+|JSON|[**json-c**](https://github.com/json-c/json-c) <br> A formal JSON parser for C, with multi-threaded support. <br> [**parson**](https://github.com/kgabis/parson) <br> Two-file, C89-compliant simple JSON parser. Suitable for embedded systems. <br> [**simdjson**](https://github.com/simdjson/simdjson) <br> Very fast JSON parser (simd), used by Node.js and a lot more. A C++-only library, but has a C wrapper at [simdjson_pas](https://github.com/pavelmash/simdjson_pas).|
 |INI|[**inih**](https://github.com/benhoyt/inih) <br> Single header INI file parser, good for embedded systems.  |
 |YAML|[**libyaml**](https://github.com/yaml/libyaml) <br> Official YAML parser, but inactive for a while.|
 |TOML|[**tomlc99**](https://github.com/cktan/tomlc99) <br> C99-compliant TOML parser.|
@@ -93,7 +93,7 @@ Networking is the dullest part of C programming.
 
 |Use Case|Recommended Tools|
 |---|---|
-|HTTP|[**libhv**](https://github.com/ithewei/libhv) <br> Full-featured async library for TCP/UDP/HTTP(S)/WebSocket client/server/proxy, and MQTT client.|
+|HTTP|[**libmicrohttpd**](https://www.gnu.org/software/libmicrohttpd/) <br> A small library that makes it easy to run an HTTP server. Widely used. <br> [**libhv**](https://github.com/ithewei/libhv) <br> Full-featured async library for TCP/UDP/HTTP(S)/WebSocket client/server/proxy, and MQTT client.|
 |gRPC|**Note**: Unfortunately, there is no good gRPC library for C. The best way to use gRPC in C is to use the C++ bindings.|
 
 </div>
