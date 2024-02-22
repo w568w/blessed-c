@@ -33,6 +33,7 @@ General use case.
 |Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library.|
 
 </div>
+
 ### (De)serialization
 
 <div class="table-wrapper" markdown="block">
