@@ -19,18 +19,23 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Blessed C
+longtitle: Blessed C
 email: w568w at outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Blessed C is a curated list of C libraries and resources. The goal is to provide a quick reference for developers to find libraries and resources for their C projects.
 baseurl: "/blessed-c" # the subpath of your site, e.g. /blog
 url: "w568w.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
 github_username:  w568w
 
 # Build settings
 remote_theme:     sighingnow/jekyll-gitbook
+
+toc:
+    enabled: true
+    h_min: 1
+    h_max: 3
+
+markdown_ext:             markdown,mkdown,mkdn,mkd,md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
