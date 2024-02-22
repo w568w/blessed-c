@@ -30,9 +30,9 @@ General use case.
 
 |Use Case|Recommended Tools|
 |---|---|
-|Regular Expressions|[**hyperscan**](https://github.com/intel/hyperscan) <br> Intel's high-performance multi-thread text matching library. Use a well-designed callback-style API and may be too complex for simple use cases. <br> [**cre2**](https://github.com/marcomaggi/cre2) <br> C wrapper of Google's re2 library. Easier to use, but inactively maintained. <br> [**Onigmo**](https://github.com/k-takata/Onigmo) <br> Standalone regular expression library, a fork of Oniguruma. Easy to use but inactively maintained.|
 |UUIDs|[**uuid4**](https://github.com/rxi/uuid4) <br> Simple implementation of UUID v4. Unmaintained. |
 |Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library.|
+|Logging|[**zlog**](https://github.com/HardySimpson/zlog) <br> High-performance & thread safe logging library. POSIX/Windows compatible. <br> **syslog** <br> GNU C library's syslog helper functions. Available on most Un*x systems, and should be used if you are writing a OS-related tool.|
 
 </div>
 
@@ -43,6 +43,8 @@ General use case.
 |---|---|
 |Dynamic Strings|[**sds**](https://github.com/antirez/sds) <br> Simple Dynamic Strings library. Inactive for a while. |
 |Unicode Support|[**utf8.h**](https://github.com/sheredom/utf8.h) <br> Single-header UTF-8 library mimicking string.h functions. <br> [**ICU**](https://github.com/unicode-org/icu) <br> International Components for Unicode, official Unicode toolkit. Includes String iteration, collation, datetime formatting, parsing, locale-sensitive text segmentation, and more. Much more heavier.|
+|SIMD Acceleration|[**StringZilla**](https://github.com/ashvardanian/StringZilla) <br> SIMD-accelerated string fuzzy matching, edit distance, and more. |
+|Regular Expressions|[**hyperscan**](https://github.com/intel/hyperscan) <br> Intel's high-performance multi-thread text matching library. Use a well-designed callback-style API and may be too complex for simple use cases. <br> [**cre2**](https://github.com/marcomaggi/cre2) <br> C wrapper of Google's re2 library. Easier to use, but inactively maintained. <br> [**Onigmo**](https://github.com/k-takata/Onigmo) <br> Standalone regular expression library, a fork of Oniguruma. Easy to use but inactively maintained.|
 
 </div>
 
@@ -53,7 +55,7 @@ General use case.
 |Use Case|Recommended Tools|
 |---|---|
 |CSV|[**zsv**](https://github.com/liquidaty/zsv) <br> Fast (simd) CSV parser.|
-|JSON|[**json.h**](https://github.com/sheredom/json.h) <br> Single header JSON parser. <br> [**parson**](https://github.com/kgabis/parson) <br> Two-file, C89-compliant JSON parser.|
+|JSON|[**json.h**](https://github.com/sheredom/json.h) <br> Single header JSON parser. <br> [**parson**](https://github.com/kgabis/parson) <br> Two-file, C89-compliant JSON parser. <br> [**simdjson**](https://github.com/simdjson/simdjson) <br> Very fast JSON parser (simd), used by Node.js and a lot more. A C++-only library, but has a C wrapper at [simdjson_pas](https://github.com/pavelmash/simdjson_pas).|
 |INI|[**inih**](https://github.com/benhoyt/inih) <br> Single header INI file parser, good for embedded systems.  |
 |YAML|[**libyaml**](https://github.com/yaml/libyaml) <br> Official YAML parser, but inactive for a while.|
 |TOML|[**tomlc99**](https://github.com/cktan/tomlc99) <br> C99-compliant TOML parser.|
