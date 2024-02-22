@@ -12,9 +12,11 @@ layout: post
 |Use Case|Recommended Tools|
 |---|---|
 |Toolchain|[**GCC C Compiler**](https://gcc.gnu.org/) <br> Widely used compiler for Un*x system. <br> [**Clang**](https://clang.llvm.org/) <br> A C frontend that compiles C into LLVM IR. Also very popular. <br> [**MSVC**](https://visualstudio.microsoft.com/) <br> Microsoft's C compiler toolchain, mainly for Windows. |
+|Standard Library|[**glibc**](https://www.gnu.org/software/libc/) <br> The most widely used C standard library. <br> [**musl**](https://musl.libc.org) <br> Light-weight and efficient C standard library, designed for static linking. <br> [**uClibc-ng**](https://uclibc-ng.org/) <br> Another light-weight C standard library, designed for embedded systems. |
 |Build Systems|[**Autotools**](https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html) <br> One of the most widely used build systems (configure && make). <br> [**CMake**](https://cmake.org) <br> The de-facto standard for building modern C/C++ code.|
 |Benchmarking|[**b63**](https://github.com/okuvshynov/b63) <br> Light-weight micro-benchmarking tool. Not very popular and maybe only suitable for personal use. <br> [**hyperfine**](https://github.com/sharkdp/hyperfine) <br> Tool for benchmarking compiled binaries (similar to unix time command but better). |
 |Language Server|[**clangd**](https://clangd.llvm.org) <br> Adds smart features to your editor: code completion, compile errors, go-to-definition and more.|
+|Documentation Generator|[**Doxygen**](https://www.doxygen.nl) <br> The most widely used documentation generator for C. Default theme looks not very attractive but you can customize it.|
 
 </div>
 
@@ -28,9 +30,19 @@ General use case.
 
 |Use Case|Recommended Tools|
 |---|---|
-|Regular Expressions|[**hyperscan**](https://github.com/intel/hyperscan) <br> Intel's high-performance multi-thread text matching library. Use a well-designed callback-style API and may be too complex for simple use cases. <br> [**cre2**](https://github.com/marcomaggi/cre2) <br> C wrapper of Google's re2 library. Easier to use, but inactively maintained.|
+|Regular Expressions|[**hyperscan**](https://github.com/intel/hyperscan) <br> Intel's high-performance multi-thread text matching library. Use a well-designed callback-style API and may be too complex for simple use cases. <br> [**cre2**](https://github.com/marcomaggi/cre2) <br> C wrapper of Google's re2 library. Easier to use, but inactively maintained. <br> [**Onigmo**](https://github.com/k-takata/Onigmo) <br> Standalone regular expression library, a fork of Oniguruma. Easy to use but inactively maintained.|
 |UUIDs|[**uuid4**](https://github.com/rxi/uuid4) <br> Simple implementation of UUID v4. Unmaintained. |
 |Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library.|
+
+</div>
+
+### String Manipulation
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Dynamic Strings|[**sds**](https://github.com/antirez/sds) <br> Simple Dynamic Strings library. Inactive for a while. |
+|Unicode Support|[**utf8.h**](https://github.com/sheredom/utf8.h) <br> Single-header UTF-8 library mimicking string.h functions. <br> [**ICU**](https://github.com/unicode-org/icu) <br> International Components for Unicode, official Unicode toolkit. Includes String iteration, collation, datetime formatting, parsing, locale-sensitive text segmentation, and more. Much more heavier.|
 
 </div>
 
@@ -84,6 +96,35 @@ Networking is the dullest part of C programming.
 
 </div>
 
+## Database
+
+C has incredibly complete support for databases, but it's not as easy as using other languages. Most are low-level libraries, and you have to write a lot of codes to use them.
+
+### SQL Databases
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|ORMs|**Note**: Unfortunately, there is no good ORM library for C, since C is lack of generics, reflection, compile-time code generation, OOP, etc. It is recommended to use a low-level SQL library, if you really need to use C.|
+|MySQL|[**libmysqlclient**](https://dev.mysql.com/downloads/c-api/) <br> Official MySQL C API.|
+|Postgres|[**libpq**](https://www.postgresql.org/docs/current/libpq.html) <br> Official Postgres C API.|
+|SQLite|[**sqlite**](https://sqlite.org/) <br> Official SQLite library.|
+|MS SQL|[**Microsoft® ODBC Driver for SQL Server®**](https://techcommunity.microsoft.com/t5/sql-server-blog/bg-p/SQLServer/label-name/SQLServerDrivers) <br> Official SQL driver, closed-source.|
+|Oracle|[**ODPI-C**](https://oracle.github.io/odpi/) <br> Official Oracle C API.|
+
+</div>
+
+### Other Databases
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Redis|[**Hiredis**](https://github.com/redis/hiredis) <br> Minimalistic C client for Redis >= 1.2, officially supported. <br> [**Hiredis-cluster**](https://github.com/Nordix/hiredis-cluster) <br> for cluster deployments of the Redis database.|
+|MongoDB|[**libmongoc**](https://github.com/mongodb/mongo-c-driver/) <br> Official MongoDB C driver.|
+|Rocks DB|[**rocksdb**](https://github.com/facebook/rocksdb) <br> Official RocksDB library for C/C++.|
+
+</div>
+
 ## Command-Line Tool
 
 ### Argument Parsing
@@ -107,3 +148,20 @@ Networking is the dullest part of C programming.
 |Interactive prompts| [**readline**](https://www.gnu.org/software/readline/) <br> De facto standard GNU library for interactive inputs. Bash is actually built on it, which supports history, completion, and line editing features. <br> [**linenoise**](https://github.com/antirez/linenoise) <br> A small, self-contained alternative to readline and libedit. Only Un*x support, and being inactive for a while.|
 
 </div>
+
+## Concurrency
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Parallel computation|[**libgomp**](https://gcc.gnu.org/onlinedocs/libgomp/index.html) <br> GNU's OpenMP implementation, a set of compiler directives and library routines for parallel computation. Easy to learn and use. <br> [**Open MPI**](https://github.com/open-mpi/ompi) <br> Open source MPI implementation, used for parallel computation on distributed systems.|
+
+</div>
+
+## Cryptography
+
+To Be Done
+
+## Graphics
+
+To Be Done
