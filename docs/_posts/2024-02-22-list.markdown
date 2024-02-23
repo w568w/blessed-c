@@ -7,18 +7,41 @@ layout: post
 
 ## Tooling
 
+Tools you may need throughout the development process: development, building, testing, and debugging.
+
+### About Development
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Standard Library|[**glibc**](https://www.gnu.org/software/libc/) <br> The most widely used C standard library. <br> [**musl**](https://musl.libc.org) <br> Light-weight and efficient C standard library, designed for static linking. <br> [**uClibc-ng**](https://uclibc-ng.org/) <br> Another light-weight C standard library, designed for embedded systems. |
+|Package Manager|[**Conan**](https://conan.io) <br> A C/C++ package manager, similar to npm or pip. <br> [**vcpkg**](https://vcpkg.io/) <br> Open-source cross-platform package manager from Microsoft. <br> [**pkg-config**](https://www.freedesktop.org/wiki/Software/pkg-config/) <br> A helper tool for using libraries. Not really a package manager, but widely used to help find libraries installed on a system. |
+|Language Server|[**clangd**](https://clangd.llvm.org) <br> Adds smart features to your editor: code completion, compile errors, go-to-definition and more.|
+
+</div>
+
+### About Building
 <div class="table-wrapper" markdown="block">
 
 |Use Case|Recommended Tools|
 |---|---|
 |Toolchain|[**GCC C Compiler**](https://gcc.gnu.org/) <br> Widely used compiler for Un*x system. <br> [**Clang**](https://clang.llvm.org/) <br> A C frontend that compiles C into LLVM IR. Also very popular. <br> [**MSVC**](https://visualstudio.microsoft.com/) <br> Microsoft's C compiler toolchain, mainly for Windows. |
-|Standard Library|[**glibc**](https://www.gnu.org/software/libc/) <br> The most widely used C standard library. <br> [**musl**](https://musl.libc.org) <br> Light-weight and efficient C standard library, designed for static linking. <br> [**uClibc-ng**](https://uclibc-ng.org/) <br> Another light-weight C standard library, designed for embedded systems. |
-|Build Systems|[**Autotools**](https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html) <br> One of the most widely used build systems (configure && make). <br> [**CMake**](https://cmake.org) <br> The de-facto standard for building modern C/C++ code.|
-|Benchmarking|[**b63**](https://github.com/okuvshynov/b63) <br> Light-weight micro-benchmarking tool. Not very popular and maybe only suitable for personal use. <br> [**hyperfine**](https://github.com/sharkdp/hyperfine) <br> Tool for benchmarking compiled binaries (similar to unix time command but better). |
-|Language Server|[**clangd**](https://clangd.llvm.org) <br> Adds smart features to your editor: code completion, compile errors, go-to-definition and more.|
+|Build System|[**Autotools**](https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html) <br> One of the most widely used build systems (configure && make). <br> [**CMake**](https://cmake.org) <br> The de-facto standard for building modern C/C++ code.|
 |Documentation Generator|[**Doxygen**](https://www.doxygen.nl) <br> The most widely used documentation generator for C. Default theme looks not very attractive but you can customize it.|
 
+
 </div>
+
+### About Testing
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Benchmarking|[**hyperfine**](https://github.com/sharkdp/hyperfine) <br> Tool for benchmarking compiled binaries (similar to unix time command but better). |
+|Testing|[**Criterion**](https://github.com/Snaipe/Criterion) <br> Simple yet powerful unit testing framework, C99-compatible. <br> [**Unity**](https://github.com/ThrowTheSwitch/Unity) <br> Another simple unit testing framework, focusing on embedded systems (8-bit to 64-bit systems supported). |
+
+</div>
+
 
 ## Common
 Very common tools that every C developer should know about.
@@ -34,11 +57,14 @@ General use case.
 |Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library.|
 |Logging|[**zlog**](https://github.com/HardySimpson/zlog) <br> High-performance & thread safe logging library. POSIX/Windows compatible. <br> **syslog** <br> GNU C library's syslog helper functions. Available on most Un*x systems, and should be used if you are writing a OS-related tool.|
 |HTTP Request|[**libcurl**](https://curl.se/libcurl/) <br> The most widely used client-side URL transfer library.|
+|All-In-One Utility|*Sometimes you may want to use a library that does many things in a uniform and portable way. Here are some of them. To keep the list brief, all features cannot be listed here.* <br> [**GLib**](https://gitlab.gnome.org/GNOME/glib/) <br> A general-purpose utility library by GNOME. Widely used. <br> [**APR**](https://apr.apache.org) <br> Apache Portable Runtime, updating infrequently but stable. <br> [**gnulib**](https://www.gnu.org/software/gnulib/) <br> A collection of subroutines used by many GNU programs, also providing system header (e.g. `unistd.h`) polyfills for non-Un*x platforms (e.g. Windows). <br> [**tbox**](https://github.com/tboox/tbox) <br> Independent glib-like portable library, C99-compatible. Works best with [xmake](https://github.com/xmake-io/xmake/) build system from the same author. <br> [**sc**](https://github.com/tezc/sc) <br> Portable, stand-alone, single-header C libraries and data structures, C99-compatible. |
 
 </div>
 
 ### Data Structures
 Common data structures.
+
+Also please take a look at all-in-one utility libraries in the previous section, because they often include data structure implementations.
 
 <div class="table-wrapper" markdown="block">
 
@@ -84,7 +110,31 @@ Try to add (or "simulate") some modern language features to C.
 |Use Case|Recommended Tools|
 |---|---|
 |Algebraic Data Types|[**datatype99**](https://github.com/Hirrolot/datatype99) <br> Intuitive algebraic data types with exhaustive pattern matching & compile-time introspection facilities. |
-|Object-Oriented Programming|[**obj.h**](https://github.com/small-c/obj.h) <br> Single header OOP support. Inactive for a while. |
+|Object-Oriented Programming|[**GObject**](https://docs.gtk.org/gobject) <br> The type system and object class support, primarily for GTK. Requires GLib.|
+
+</div>
+
+## System
+
+### Memory Management
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Allocator|[**mimalloc**](https://github.com/microsoft/mimalloc) <br> Memory allocator with a focus on performance and small memory usage, from Microsoft. It claims to be faster than all the libraries below. <br> [**jemalloc**](https://github.com/jemalloc/jemalloc) <br> A general purpose malloc implementation that emphasizes fragmentation avoidance and scalable concurrency support, from Facebook. <br> [**tcmalloc**](https://github.com/gperftools/gperftools) <br> Thread-Caching Malloc, from Google. <br> [**rpmalloc**](https://github.com/mjansson/rpmalloc) <br> Memory allocator with built-in support for thread-caching, heap-pinning and small block merging. Independent.|
+|Garbage Collector|[**Boehm-Demers-Weiser GC**](https://github.com/ivmai/bdwgc) <br> A general purpose, garbage collecting storage allocator.|
+
+</div>
+
+### Portable System Interface
+
+Most all-in-one utilities also focus on portability. Check them first.
+
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|General Case|[**plibsys**](https://github.com/saprykin/plibsys) <br> Highly portable interface for 15+ OSs and 10+ compilers. Zero-dependency.|
 
 </div>
 
@@ -139,6 +189,25 @@ C has incredibly complete support for databases, but it's not as easy as using o
 
 </div>
 
+## Math / Scientific
+
+Some all-in-one utilities also contain math and/or scientific subroutines; check them first.
+
+**Note**: Mathematics and scientific computing is a very broad field. Considering that C has been one of the go-to languages for high-performance computing since its invention, there are lots of libraries in this area. We would like to include **all the common use cases for an average programmer (e.g., high-precision computation, linear algebra, transformations, etc.) instead of a math researcher** (you shouldn't rely on this list if you are doing serious mathematics, should you?), and it is not possible to discuss all of them in order to keep the list short.
+
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Big Integer|[**GMP**](https://gmplib.org/) <br> The GNU arbitrary-precision arithmetic library.|
+|Big Decimal|[**MPFR**](https://www.mpfr.org/) <br> The GNU multiple-precision floating-point computation library with correct rounding.|
+|Linear Algebra|[**OpenBLAS**](https://github.com/OpenMathLib/OpenBLAS) <br> An optimized BLAS (Basic Linear Algebra Subprograms) library. Mainly supports CPUs. <br> [**CLBlast**](https://github.com/CNugteren/CLBlast) <br> BLAS with OpenCL. Supports GPUs. <br> [**clBLAS**](https://github.com/clMathLibraries/clBLAS) <br> The most famous BLAS library with OpenCL, but unmaintained for a long time. <br> [**cuBLAS**](https://developer.nvidia.com/cublas) <br> NVIDIA's proprietary BLAS library with CUDA. Has the maximum performance on NVIDIA GPUs.|
+|Fourier Transform|[**FFTW**](http://www.fftw.org/) <br> A fastest Discrete Fourier transform implementation.|
+|DataFrame|[**Apache Arrow GLib**](https://github.com/apache/arrow/) <br> Official C API for Apache Arrow.|
+
+</div>
+
+
 ## Command-Line Tool
 
 ### Argument Parsing
@@ -180,14 +249,7 @@ To Be Done
 
 To Be Done
 
-## Math / Scientific
-
-To Be Done
-
 ## FFI / Interop
 
 To Be Done
 
-## System
-
-To Be Done
