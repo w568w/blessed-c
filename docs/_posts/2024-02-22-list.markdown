@@ -15,9 +15,9 @@ Tools you may need throughout the development process: development, building, te
 |Use Case|Recommended Tools|
 |---|---|
 |Standard Library|[**glibc**](https://www.gnu.org/software/libc/) <br> The most widely used C standard library. <br> [**musl**](https://musl.libc.org) <br> Light-weight and efficient C standard library, designed for static linking. <br> [**uClibc-ng**](https://uclibc-ng.org/) <br> Another light-weight C standard library, designed for embedded systems. |
-|Package Manager|[**Conan**](https://conan.io) <br> A C/C++ package manager, similar to npm or pip. <br> [**vcpkg**](https://vcpkg.io/) <br> Open-source cross-platform package manager from Microsoft. <br> [**pkg-config**](https://www.freedesktop.org/wiki/Software/pkg-config/) <br> A helper tool for using libraries. Not really a package manager, but widely used to help find libraries installed on a system. |
+|Package Manager|[**Conan**](https://conan.io) <br> A C/C++ package manager, with a large repository. <br> [**vcpkg**](https://vcpkg.io/) <br> Package manager from Microsoft. Mainly for Visual Studio, but works on Un*x too. <br> [**pkg-config**](https://www.freedesktop.org/wiki/Software/pkg-config/) <br> A helper tool for using libraries. Not really a package manager, but widely used to help find libraries installed on a system. |
 |Language Server|[**clangd**](https://clangd.llvm.org) <br> Adds smart features to your editor: code completion, compile errors, go-to-definition and more.|
-|Linting|[**Cppcheck**](http://cppcheck.sourceforge.net) <br> A static analysis tool for common C/C++ code problems. <br> [**clang-tidy**](https://clang.llvm.org/extra/clang-tidy/) <br> A clang-based C/C++ linter. Default linter for clangd and CLion IDE.|
+|Linting|[**Cppcheck**](http://cppcheck.sourceforge.net) <br> A static analysis tool for common C/C++ code problems. <br> [**clang-tidy**](https://clang.llvm.org/extra/clang-tidy/) <br> A clang-based C/C++ linter. The default linter for clangd plugin and CLion IDE.|
 
 </div>
 
@@ -27,8 +27,8 @@ Tools you may need throughout the development process: development, building, te
 |Use Case|Recommended Tools|
 |---|---|
 |Toolchain|[**GCC C Compiler**](https://gcc.gnu.org/) <br> Widely used compiler for Un*x system. <br> [**Clang**](https://clang.llvm.org/) <br> A C frontend that compiles C into LLVM IR. Also very popular. <br> [**MSVC**](https://visualstudio.microsoft.com/) <br> Microsoft's C compiler toolchain, mainly for Windows. |
-|Build System|[**Autotools**](https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html) <br> One of the most widely used build systems (configure && make). <br> [**CMake**](https://cmake.org) <br> The de-facto standard for building modern C/C++ code.|
-|Documentation Generator|[**Doxygen**](https://www.doxygen.nl) <br> The most widely used documentation generator for C. Default theme looks not very attractive but you can customize it.|
+|Build System|[**Autotools**](https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html) <br> One of the most widely used build systems (configure && make). <br> [**CMake**](https://cmake.org) <br> The de-facto standard for building modern C/C++ project.|
+|Documentation Generator|[**Doxygen**](https://www.doxygen.nl) <br> The most widely used documentation generator for C. Default theme looks not very attractive but can be customized.|
 
 
 </div>
@@ -49,7 +49,7 @@ Tools you may need throughout the development process: development, building, te
 
 |Use Case|Recommended Tools|
 |---|---|
-|Automatic Checker|[**Sanitizers**](https://github.com/google/sanitizers) <br> AddressSanitizer, UndefinedBehaviorSanitizer, MemorySanitizer to detect runtime problems.  <br> [**Valgrind**](http://valgrind.org) <br> A suite of tools for debugging and profiling, having similar features to sanitizers. Both are very popular and time-tested.|
+|Automatic Checker|[**Sanitizers**](https://github.com/google/sanitizers) <br> AddressSanitizer, UndefinedBehaviorSanitizer, MemorySanitizer to detect runtime problems.  <br> [**Valgrind**](http://valgrind.org) <br> A tools suite for debugging and profiling, having similar features to sanitizers. Both are very popular and time-tested.|
 |Manual Debugger|[**GDB**](https://www.gnu.org/software/gdb/) <br> The most widely used debugger by GNU for C, as well as Asm, D, Fortran, Go, Rust, OpenCL, and many other languages.  |
 
 </div>
@@ -81,7 +81,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 
 |Use Case|Recommended Tools|
 |---|---|
-|Generic Collections|[**Collections-C**](https://github.com/srdja/Collections-C) <br> Generic arrays, lists, hashmaps, and more. Use `void *` to store any type of data. <br> [**STC**](https://github.com/stclib/STC) <br> Similar to Collections-C, but uses macros  to simulate generics.|
+|Generic Collections|[**Collections-C**](https://github.com/srdja/Collections-C) <br> Generic arrays, lists, hashmaps, and more. Use `void *` to store any type of data. <br> [**STC**](https://github.com/stclib/STC) <br> Similar to Collections-C, but uses macros to simulate generics.|
 
 </div>
 
@@ -93,7 +93,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 |Dynamic Strings|[**sds**](https://github.com/antirez/sds) <br> Simple Dynamic Strings library. Inactive for a while. |
 |Unicode Support|[**utf8.h**](https://github.com/sheredom/utf8.h) <br> Single-header UTF-8 library mimicking string.h functions. <br> [**ICU**](https://github.com/unicode-org/icu) <br> International Components for Unicode, official Unicode toolkit. Includes String iteration, collation, datetime formatting, parsing, locale-sensitive text segmentation, and more. Much more heavier.|
 |SIMD Acceleration|[**StringZilla**](https://github.com/ashvardanian/StringZilla) <br> SIMD-accelerated string fuzzy matching, edit distance, and more. |
-|Regular Expressions|[**hyperscan**](https://github.com/intel/hyperscan) <br> Intel's high-performance multi-thread text matching library. Use a well-designed callback-style API and may be too complex for simple use cases. <br> [**cre2**](https://github.com/marcomaggi/cre2) <br> C wrapper of Google's re2 library. Easier to use, but inactively maintained. <br> [**Onigmo**](https://github.com/k-takata/Onigmo) <br> Standalone regular expression library, a fork of Oniguruma. Easy to use but inactively maintained.|
+|Regular Expressions|[**hyperscan**](https://github.com/intel/hyperscan) <br> Intel's high-performance multi-thread text matching library. Use a well-designed callback-style API and may be too complex for simple use cases. <br> [**cre2**](https://github.com/marcomaggi/cre2) <br> C wrapper of Google's re2 library. Easy to use but inactively maintained. <br> [**Onigmo**](https://github.com/k-takata/Onigmo) <br> Standalone regular expression library, a fork of Oniguruma. Easy to use but inactively maintained.|
 
 </div>
 
@@ -168,7 +168,7 @@ Networking is the dullest part of C programming.
 |Use Case|Recommended Tools|
 |---|---|
 |HTTP|[**libmicrohttpd**](https://www.gnu.org/software/libmicrohttpd/) <br> A small library that makes it easy to run an HTTP server. Widely used. <br> [**libhv**](https://github.com/ithewei/libhv) <br> Full-featured async library for TCP/UDP/HTTP(S)/WebSocket client/server/proxy, and MQTT client.|
-|gRPC|**Note**: Unfortunately, there is no good gRPC library for C. The best way to use gRPC in C is to use the C++ bindings.|
+|gRPC|**Note**: Unfortunately, there is [no good gRPC library for C](https://github.com/grpc/grpc/issues/23160#issuecomment-646123380). The best way to use gRPC in C is to use the C++ bindings.|
 
 </div>
 
@@ -181,7 +181,7 @@ C has incredibly complete support for databases, but it's not as easy as using o
 
 |Use Case|Recommended Tools|
 |---|---|
-|ORMs|**Note**: Unfortunately, there is no good ORM library for C, since C is lack of generics, reflection, compile-time code generation, OOP, etc. It is recommended to use a low-level SQL library, if you really need to use C.|
+|ORMs|**Note**: Unfortunately, there is [no good ORM library for C, since C is lack of generics, reflection, compile-time code generation, OOP, etc.](https://stackoverflow.com/questions/10577006/is-there-some-convenient-orm-library-framework-for-c) It is recommended to use a low-level SQL library, if you really need to use C.|
 |MySQL|[**libmysqlclient**](https://dev.mysql.com/downloads/c-api/) <br> Official MySQL C API.|
 |Postgres|[**libpq**](https://www.postgresql.org/docs/current/libpq.html) <br> Official Postgres C API.|
 |SQLite|[**sqlite**](https://sqlite.org/) <br> Official SQLite library.|
@@ -296,7 +296,7 @@ Embeds other languages into C. To embed C into other languages, just check the F
 
 |Use Case|Recommended Tools|
 |---|---|
-|Declarative UI|[**GTK**](https://www.gtk.org/) <br> A traditional multi-platform toolkit for creating graphical user interfaces. <br> [**LCUI**](https://github.com/lc-soft/LCUI) <br> Building desktop apps with XML/CSS. Modern but immature. <br> [**LVGL**](https://lvgl.io/) <br> Light and powerful GUI library, with a small memory footprint. Mainly designed for embedded systems. <br> [**libui-ng**](https://github.com/libui-ng/libui-ng) <br> Fork of unmaintained libui, a simple and portable GUI library using native widgets on Unix, Windows, and macOS. Still immature. |
+|Declarative UI|[**GTK**](https://www.gtk.org/) <br> A traditional multi-platform toolkit for creating graphical user interfaces. <br> [**LCUI**](https://github.com/lc-soft/LCUI) <br> Building desktop apps with XML/CSS. Modern but immature. <br> [**LVGL**](https://lvgl.io/) <br> Light and powerful GUI library. Mainly designed for embedded systems. <br> [**libui-ng**](https://github.com/libui-ng/libui-ng) <br> Fork of unmaintained libui, a simple and portable GUI library using native widgets on Unix, Windows, and macOS. Still immature. |
 |Immediate Mode UI|[**Nuklear**](https://github.com/Immediate-Mode-UI/Nuklear) <br> Single-header immediate mode portable GUI library, C89-compatible. |
 |Web-based UI|[**azul**](https://github.com/fschutt/azul) <br> GUI framework for desktop applications in Rust based on Mozilla's WebRender, having C bindings. |
 |File Dialogs|[**tinyfiledialogs**](https://sourceforge.net/projects/tinyfiledialogs/) <br> Single-file dialog library for showing cross-platform file dialogs. |
