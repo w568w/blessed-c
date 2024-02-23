@@ -17,7 +17,7 @@ layout: home
 ## What is this?
 The standard library in C is much smaller than in, for example, Python or Go. Those languages come with "batteries included" support for things like HTTP(S), JSON, timezones and async IO. 
 
-C programmers, on the other hand, are often used to being "self-sufficient" - using a limited set of libraries and and handcraft logic. This is due to the fact that C does not have an "all-in-one" package manager and repository so far, and **the online information is so fragmented that almost forces one to give up finding a good library for his/her use case.** They sometimes don't know which packages are stable, fully functional, and trustworthy.
+C programmers, on the other hand, are often used to being "self-sufficient" - using a limited set of libraries and handcraft logic. This is due to the fact that C does not have an "all-in-one" package manager and repository so far, and **the online information is so fragmented that almost forces one to give up finding a good library for his/her use case.** They sometimes don't know which packages are stable, fully functional, and trustworthy.
 
 To avoid reinventing the wheel, this list is intended to answer those questions.
 

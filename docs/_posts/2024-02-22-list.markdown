@@ -68,7 +68,7 @@ General use case.
 |Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library.|
 |Logging|[**zlog**](https://github.com/HardySimpson/zlog) <br> High-performance & thread safe logging library. POSIX/Windows compatible. <br> **syslog** <br> GNU C library's syslog helper functions. Available on most Un*x systems, and should be used if you are writing a OS-related tool.|
 |HTTP Request|[**libcurl**](https://curl.se/libcurl/) <br> The most widely used client-side URL transfer library.|
-|All-In-One Utility|*Sometimes you may want to use a library that does many things in a uniform and portable way. Here are some of them. To keep the list brief, all features cannot be listed here.* <br> [**GLib**](https://gitlab.gnome.org/GNOME/glib/) <br> A general-purpose utility library by GNOME. Widely used. <br> [**APR**](https://apr.apache.org) <br> Apache Portable Runtime, updating infrequently but stable. <br> [**gnulib**](https://www.gnu.org/software/gnulib/) <br> A collection of subroutines used by many GNU programs, also providing system header (e.g. `unistd.h`) polyfills for non-Un*x platforms (e.g. Windows). <br> [**tbox**](https://github.com/tboox/tbox) <br> Independent glib-like portable library, C99-compatible. Works best with [xmake](https://github.com/xmake-io/xmake/) build system from the same author. <br> [**sc**](https://github.com/tezc/sc) <br> Portable, stand-alone, single-header C libraries and data structures, C99-compatible. |
+|All-In-One Utility|*Sometimes you may want to use a library that does many things in a uniform and portable way. Here are some of them. To keep the list brief, all features cannot be listed here.* <br> [**GLib**](https://gitlab.gnome.org/GNOME/glib/) <br> A general-purpose utility library by GNOME. Widely used. <br> [**APR**](https://apr.apache.org) <br> Apache Portable Runtime, updating infrequently but stable. <br> [**gnulib**](https://www.gnu.org/software/gnulib/) <br> A collection of subroutines used by many GNU programs, also providing system header (e.g. `unistd.h`) polyfills for non-Un*x platforms (e.g. Windows). <br> [**tbox**](https://github.com/tboox/tbox) <br> Independent glib-like portable library, C99-compatible. Works best with [xmake](https://github.com/xmake-io/xmake/) build system from the same author. <br> [**sc**](https://github.com/tezc/sc) <br> Portable, stand-alone, single-header libraries and data structures, C99-compatible. <br> [**stb**](https://github.com/nothings/stb) Famous single-header libraries focusing on multimedia processing and game-dev utils.|
 
 </div>
 
@@ -104,7 +104,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 |Use Case|Recommended Tools|
 |---|---|
 |CSV|[**zsv**](https://github.com/liquidaty/zsv) <br> Fast (simd) CSV parser.|
-|JSON|[**cJSON**](https://github.com/DaveGamble/cJSON) <br> Two-file, ultralightweight JSON parser in C89. Suitable for embedded systems, not thread safe. <br> [**json-c**](https://github.com/json-c/json-c) <br> A formal JSON parser for C, with multi-threaded support.|
+|JSON|**Note:** [Here](https://github.com/miloyip/nativejson-benchmark) is a performance benchmark of most C/C++ JSON parser. <br> [**cJSON**](https://github.com/DaveGamble/cJSON) <br> Two-file, ultralightweight JSON parser in C89. Suitable for embedded systems, not thread safe. <br> [**json-c**](https://github.com/json-c/json-c) <br> A formal, high-performance JSON parser, with multi-threaded support.|
 |INI|[**inih**](https://github.com/benhoyt/inih) <br> Single header INI file parser, good for embedded systems.  |
 |YAML|[**libyaml**](https://github.com/yaml/libyaml) <br> Official YAML parser, but inactive for a while.|
 |TOML|[**tomlc99**](https://github.com/cktan/tomlc99) <br> C99-compliant TOML parser.|
@@ -122,6 +122,7 @@ Try to add (or "simulate") some modern language features to C.
 |---|---|
 |Algebraic Data Types|[**datatype99**](https://github.com/Hirrolot/datatype99) <br> Intuitive algebraic data types with exhaustive pattern matching & compile-time introspection facilities. |
 |Object-Oriented Programming|[**GObject**](https://docs.gtk.org/gobject) <br> The type system and object class support, primarily for GTK. Requires GLib.|
+|Better Macros|[**metalang99**](https://github.com/Hirrolot/metalang99) <br> Provides macros with compile-time list generation, recursion, overloading features.|
 
 </div>
 
@@ -147,6 +148,7 @@ Most all-in-one utilities also focus on portability. Check them first.
 |---|---|
 |General Case|[**plibsys**](https://github.com/saprykin/plibsys) <br> Highly portable system interface for 15+ OSs and 10+ compilers. Zero-dependency.|
 |Backtrace|[**libunwind**](https://github.com/libunwind/libunwind) <br> Introspet the call stack of a program, both local (this process) and remote (another process). Portable among Un*x systems (NOT Windows). <br> [**libbacktrace**](https://github.com/ianlancetaylor/libbacktrace) <br> Similar, but supports all of GNU/Linux, *BSD, macOS and Windows, and only supports local backtrace. Less actively maintained.|
+|Environment Probing|[**whereami**](https://github.com/gpakosz/whereami) <br> Locate the current running executable and the current running module/library on the file system. <br> [**cpu_features**](https://github.com/google/cpu_features) <br> A cross platform library to get cpu features at runtime, C99-compliant.|
 
 </div>
 
@@ -280,7 +282,7 @@ Embeds other languages into C. To embed C into other languages, just check the F
 |Use Case|Recommended Tools|
 |---|---|
 |Python|[**Python/C API**](https://docs.python.org/3/c-api/index.html) <br> The official C API for Python. |
-|JavaScript|[**V8**](https://v8.dev/) <br> Google's open source high-performance JavaScript and WebAssembly engine, really fast but heavyweight. <br> [**QuickJS**](https://bellard.org/quickjs/) <br> A small and embeddable JavaScript engine with competitive performance. <br> [**Duktape**](https://duktape.org/) <br> Even smaller and embeddable JavaScript engine, but less performant. |
+|JavaScript|[**V8**](https://v8.dev/) <br> Google's open source high-performance JavaScript and WebAssembly engine, really fast but heavyweight. <br> [**QuickJS**](https://bellard.org/quickjs/) <br> A small and embeddable JavaScript engine with competitive performance. <br> [**Duktape**](https://duktape.org/) <br> Even smaller and embeddable JavaScript engine (only 2 files), but less performant. |
 |Lua|[**LuaJIT**](https://luajit.org/) <br> A Just-In-Time Compiler for Lua, with a C API. |
 |Dart|[**Dart Embedding API**](https://dart.dev/server/c-interop-native-extensions) <br> Embed Dart into C/C++ applications. No official documentation, only community examples. |
 
