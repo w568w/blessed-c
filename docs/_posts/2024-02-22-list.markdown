@@ -214,7 +214,7 @@ Some all-in-one utilities also contain math and/or scientific subroutines; check
 |Big Integer|[**GMP**](https://gmplib.org/) <br> The GNU arbitrary-precision arithmetic library.|
 |Big Decimal|[**MPFR**](https://www.mpfr.org/) <br> The GNU multiple-precision floating-point computation library with correct rounding.|
 |Linear Algebra|[**OpenBLAS**](https://github.com/OpenMathLib/OpenBLAS) <br> An optimized BLAS (Basic Linear Algebra Subprograms) library. Mainly supports CPUs. <br> [**CLBlast**](https://github.com/CNugteren/CLBlast) <br> BLAS with OpenCL. Supports GPUs. <br> [**clBLAS**](https://github.com/clMathLibraries/clBLAS) <br> The most famous BLAS library with OpenCL, but unmaintained for a long time. <br> [**cuBLAS**](https://developer.nvidia.com/cublas) <br> NVIDIA's proprietary BLAS library with CUDA. Has the maximum performance on NVIDIA GPUs.|
-|Fourier Transform|[**FFTW**](http://www.fftw.org/) <br> A fastest Discrete Fourier transform implementation.|
+|Fourier Transform|[**FFTW**](http://www.fftw.org/) <br> A fast Discrete Fourier transform implementation.|
 |DataFrame|[**Apache Arrow GLib**](https://github.com/apache/arrow/) <br> Official C API for Apache Arrow.|
 
 </div>
@@ -227,8 +227,8 @@ Some all-in-one utilities also contain math and/or scientific subroutines; check
 
 |Use Case|Recommended Tools|
 |---|---|
-|POSIX/BSD-style (`-cvf`)| **getopt** <br> In POSIX specification, getopt is the standard method to parse command-line arguments. <br> [**getopt_long**](https://www.gnu.org/software/libc/manual/html_node/Getopt-Long-Options.html) <br> GNU extension of getopt that supports long options (--foo=bar) and has been widely accepted. Included in glibc and gnulib. <br> [**argparse**](https://github.com/cofyc/argparse) <br> Standalone argument parser supporting subcommands. Inactive for a while. <br> [**optparse**](https://github.com/skeeto/optparse) <br> Standalone, single-header argument parser, designed to prevent global variables, support resetting and printing error message to elsewhere instead of stderr, compared with getopt. Inactive for a while. <br> [**cmd_arger**](https://github.com/heroseh/cmd_arger) <br> A nice argument parser with declarative syntax and auto-generated help message. Inactive for a while.|
-| DOS-style (`/C /V /F`) |[**getopt-dos**](https://github.com/ofey404/getopt-dos) <br> Like getopt, but supports DOS-style options. Not mature and unmaintained.|
+|POSIX/BSD-style (`-cvf`)| **getopt** <br> In POSIX specification, getopt is the standard method to parse command-line arguments. <br> [**getopt_long**](https://www.gnu.org/software/libc/manual/html_node/Getopt-Long-Options.html) <br> GNU extension of getopt that supports long options (--foo=bar) and has been widely accepted. Included in glibc and gnulib. <br> [**argparse**](https://github.com/cofyc/argparse) <br> Standalone argument parser supporting subcommands. Inactive for a while. <br> [**cmd_arger**](https://github.com/heroseh/cmd_arger) <br> A nice argument parser with declarative syntax and auto-generated help message. Inactive for a while.|
+| DOS-style (`/C /V /F`) |[**getopt-dos**](https://github.com/ofey404/getopt-dos) <br> Like getopt, but supports DOS-style options. Immature and unmaintained.|
 
 </div>
 
@@ -267,12 +267,13 @@ If you are looking for a specific algorithm implementation, you should check eac
 |General Purpose Hashing|[**libgcrypt**](https://gnupg.org/related_software/libgcrypt/) <br> GnuPG's cryptographic library. Provides general-purpose hash functions, symmetric and asymmetric encryption, and more. <br> [**trezor-crypto**](https://github.com/trezor/trezor-firmware) <br> Heavily optimized for embedded devices. |
 |Password Hashing|[**libsodium**](https://libsodium.gitbook.io/doc/) <br> An easy-to-use software library for encryption, decryption, signatures, password hashing, having a very modern and beginner-friendly API. |
 |TLS/SSL|[**OpenSSL**](https://www.openssl.org/) <br> The de-facto standard implementation for modern cryptography. Provides a full-featured toolkit for the TLS and SSL, also with a lot of cryptographic and certificate algorithms. |
+|Non-cryptographic Hashing|[**xxHash**](https://github.com/Cyan4973/xxHash) <br> A fast non-cryptographic hash algorithm and implementation, claiming to be faster than memcpy. <br> [**highwayhash**](https://github.com/google/highwayhash) <br> from Google (simd), also quite fast. |
 
 </div>
 
 ## FFI / Interop
 
-Embeds other languages into C.
+Embeds other languages into C. To embed C into other languages, just check the FFI documentation of the target language.
 
 <div class="table-wrapper" markdown="block">
 
@@ -287,7 +288,31 @@ Embeds other languages into C.
 
 ## Graphics
 
-To Be Done
+**Note**: Currently this part is mainly finished by a [contributor](https://github.com/w568w/) who never works on graphics with C. If you find anything weird, please feel free to [open an issue or pull request in the GitHub repository](https://github.com/w568w/blessed-c/).
+
+### High-level GUI
+
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Declarative UI|[**GTK**](https://www.gtk.org/) <br> A traditional multi-platform toolkit for creating graphical user interfaces. <br> [**LCUI**](https://github.com/lc-soft/LCUI) <br> Building desktop apps with XML/CSS. Modern but immature. <br> [**LVGL**](https://lvgl.io/) <br> Light and powerful GUI library, with a small memory footprint. Mainly designed for embedded systems. <br> [**libui-ng**](https://github.com/libui-ng/libui-ng) <br> Fork of unmaintained libui, a simple and portable GUI library using native widgets on Unix, Windows, and macOS. Still immature. |
+|Immediate Mode UI|[**Nuklear**](https://github.com/Immediate-Mode-UI/Nuklear) <br> Single-header immediate mode portable GUI library, C89-compatible. |
+|Web-based UI|[**azul**](https://github.com/fschutt/azul) <br> GUI framework for desktop applications in Rust based on Mozilla's WebRender, having C bindings. |
+|File Dialogs|[**tinyfiledialogs**](https://sourceforge.net/projects/tinyfiledialogs/) <br> Single-file dialog library for showing cross-platform file dialogs. |
+|Accessibility|[**AccessKit**](https://github.com/AccessKit/accesskit) <br> UI accessibility infrastructure across desktop platforms in Rust, having C bindings. |
+
+</div>
+
+### Low-level Graphics
+
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|OpenGL|[**GLFW**](https://www.glfw.org/) <br> A cross-platform library for OpenGL, OpenGL ES, and Vulkan, C99-compatible. <br> [**glad**](https://github.com/Dav1dde/glad) <br> Vulkan/GL/GLES/EGL/GLX/WGL Loader-Generator based on the official specs. Usually used with GLFW to generate GL function pointers. |
+|Multi-backend Rendering|[**SDL**](https://www.libsdl.org/) <br> A cross-platform library designed to provide low-level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL, Direct3D, etc. Stable & time-tested. <br> [**raylib**](https://github.com/raysan5/raylib) <br> for games and multimedia programming. Modern & beginner-friendly.|
+|Text Layout|[**HarfBuzz**](https://harfbuzz.github.io/) <br> Text shaping library for single-line shaping, with an emphasis on internationalization. The core of many layout engines today. <br> [**pango**](https://www.pango.org/) <br> Library for laying out and rendering multi-line text correctly. Can be used alone but works best with [Cairo](https://www.cairographics.org/), which is a 2D graphics library inactively maintained. |
 
 
-
+</div>
