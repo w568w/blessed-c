@@ -17,6 +17,7 @@ Tools you may need throughout the development process: development, building, te
 |Standard Library|[**glibc**](https://www.gnu.org/software/libc/) <br> The most widely used C standard library. <br> [**musl**](https://musl.libc.org) <br> Light-weight and efficient C standard library, designed for static linking. <br> [**uClibc-ng**](https://uclibc-ng.org/) <br> Another light-weight C standard library, designed for embedded systems. |
 |Package Manager|[**Conan**](https://conan.io) <br> A C/C++ package manager, similar to npm or pip. <br> [**vcpkg**](https://vcpkg.io/) <br> Open-source cross-platform package manager from Microsoft. <br> [**pkg-config**](https://www.freedesktop.org/wiki/Software/pkg-config/) <br> A helper tool for using libraries. Not really a package manager, but widely used to help find libraries installed on a system. |
 |Language Server|[**clangd**](https://clangd.llvm.org) <br> Adds smart features to your editor: code completion, compile errors, go-to-definition and more.|
+|Linting|[**Cppcheck**](http://cppcheck.sourceforge.net) <br> A static analysis tool for common C/C++ code problems. <br> [**clang-tidy**](https://clang.llvm.org/extra/clang-tidy/) <br> A clang-based C/C++ linter. Default linter for clangd and CLion IDE.|
 
 </div>
 
@@ -42,6 +43,16 @@ Tools you may need throughout the development process: development, building, te
 
 </div>
 
+### About Debugging
+
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Automatic Checker|[**Sanitizers**](https://github.com/google/sanitizers) <br> AddressSanitizer, UndefinedBehaviorSanitizer, MemorySanitizer to detect runtime problems.  <br> [**Valgrind**](http://valgrind.org) <br> A suite of tools for debugging and profiling, having similar features to sanitizers. Both are very popular and time-tested.|
+|Manual Debugger|[**GDB**](https://www.gnu.org/software/gdb/) <br> The most widely used debugger by GNU for C, as well as Asm, D, Fortran, Go, Rust, OpenCL, and many other languages.  |
+
+</div>
 
 ## Common
 Very common tools that every C developer should know about.
@@ -53,7 +64,7 @@ General use case.
 
 |Use Case|Recommended Tools|
 |---|---|
-|UUIDs|[**uuid4**](https://github.com/rxi/uuid4) <br> Simple implementation of UUID v4. Unmaintained. |
+|UUIDs|[**libuuid**](https://sourceforge.net/p/libuuid) <br> Generates UUIDs. Part of the e2fsprogs (i.e. ext2 filesystem tools) package. Unmaintained for a long time. <br> [**IdGenerator**](https://github.com/yitter/idgenerator/) <br> Fast SnowFlake-based unique ID generator, having C port. Actively maintained but documentation is Chinese only.|
 |Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library.|
 |Logging|[**zlog**](https://github.com/HardySimpson/zlog) <br> High-performance & thread safe logging library. POSIX/Windows compatible. <br> **syslog** <br> GNU C library's syslog helper functions. Available on most Un*x systems, and should be used if you are writing a OS-related tool.|
 |HTTP Request|[**libcurl**](https://curl.se/libcurl/) <br> The most widely used client-side URL transfer library.|
@@ -97,7 +108,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 |INI|[**inih**](https://github.com/benhoyt/inih) <br> Single header INI file parser, good for embedded systems.  |
 |YAML|[**libyaml**](https://github.com/yaml/libyaml) <br> Official YAML parser, but inactive for a while.|
 |TOML|[**tomlc99**](https://github.com/cktan/tomlc99) <br> C99-compliant TOML parser.|
-|XML|[**libexpat**](https://github.com/libexpat/libexpat) <br> Fast streaming XML parser, C99-compliant.|
+|XML|[**libexpat**](https://github.com/libexpat/libexpat) <br> Fast streaming XML parser, C99-compliant. <br> [**libxml2**](https://gitlab.gnome.org/GNOME/libxml2) <br> GNOME's XML toolkit, standards-compliant and portable, C89-compliant. |
 |HTML|[**lexbor**](https://github.com/lexbor/lexbor) <br> Not just a parser, but a full-featured HTML5 Renderer. It has HTML (de)serialization support. <br> [**myhtml**](https://github.com/lexborisov/myhtml) <br> A standalone HTML parser by the same author of lexbor. It has been deprecated in favor of lexbor.|
 
 </div>
@@ -121,7 +132,7 @@ Try to add (or "simulate") some modern language features to C.
 
 |Use Case|Recommended Tools|
 |---|---|
-|Allocator|[**mimalloc**](https://github.com/microsoft/mimalloc) <br> Memory allocator with a focus on performance and small memory usage, from Microsoft. It claims to be faster than all the libraries below. <br> [**jemalloc**](https://github.com/jemalloc/jemalloc) <br> A general purpose malloc implementation that emphasizes fragmentation avoidance and scalable concurrency support, from Facebook. <br> [**tcmalloc**](https://github.com/gperftools/gperftools) <br> Thread-Caching Malloc, from Google. <br> [**rpmalloc**](https://github.com/mjansson/rpmalloc) <br> Memory allocator with built-in support for thread-caching, heap-pinning and small block merging. Independent.|
+|Allocator|[**mimalloc**](https://github.com/microsoft/mimalloc) <br> Memory allocator with a focus on performance and small memory usage, from Microsoft. It claims to be faster than all the libraries below. <br> [**jemalloc**](https://github.com/jemalloc/jemalloc) <br> A general purpose malloc implementation that emphasizes fragmentation avoidance and scalable concurrency support, from Facebook. Widely used. <br> [**tcmalloc**](https://github.com/gperftools/gperftools) <br> Thread-Caching Malloc, from Google. <br> [**rpmalloc**](https://github.com/mjansson/rpmalloc) <br> Memory allocator with built-in support for thread-caching, heap-pinning and small block merging. Independent.|
 |Garbage Collector|[**Boehm-Demers-Weiser GC**](https://github.com/ivmai/bdwgc) <br> A general purpose, garbage collecting storage allocator.|
 
 </div>
@@ -134,7 +145,8 @@ Most all-in-one utilities also focus on portability. Check them first.
 
 |Use Case|Recommended Tools|
 |---|---|
-|General Case|[**plibsys**](https://github.com/saprykin/plibsys) <br> Highly portable interface for 15+ OSs and 10+ compilers. Zero-dependency.|
+|General Case|[**plibsys**](https://github.com/saprykin/plibsys) <br> Highly portable system interface for 15+ OSs and 10+ compilers. Zero-dependency.|
+|Backtrace|[**libunwind**](https://github.com/libunwind/libunwind) <br> Introspet the call stack of a program, both local (this process) and remote (another process). Portable among Un*x systems (NOT Windows). <br> [**libbacktrace**](https://github.com/ianlancetaylor/libbacktrace) <br> Similar, but supports all of GNU/Linux, *BSD, macOS and Windows, and only supports local backtrace. Less actively maintained.|
 
 </div>
 
@@ -242,14 +254,40 @@ Some all-in-one utilities also contain math and/or scientific subroutines; check
 </div>
 
 ## Cryptography
+C has a solid history in cryptography, and there are many nice libraries available for cryptographic tasks. Thus popularity and maturity are the main criteria for the selection.
 
-To Be Done
+**It is hard to classify cryptographic libraries by use cases, because most of them provide a wide range of cryptographic algorithms.**
+
+If you are looking for a specific algorithm implementation, you should check each library's documentation to see if it supports what you want.
+
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|General Purpose Hashing|[**libgcrypt**](https://gnupg.org/related_software/libgcrypt/) <br> GnuPG's cryptographic library. Provides general-purpose hash functions, symmetric and asymmetric encryption, and more. <br> [**trezor-crypto**](https://github.com/trezor/trezor-firmware) <br> Heavily optimized for embedded devices. |
+|Password Hashing|[**libsodium**](https://libsodium.gitbook.io/doc/) <br> An easy-to-use software library for encryption, decryption, signatures, password hashing, having a very modern and beginner-friendly API. |
+|TLS/SSL|[**OpenSSL**](https://www.openssl.org/) <br> The de-facto standard implementation for modern cryptography. Provides a full-featured toolkit for the TLS and SSL, also with a lot of cryptographic and certificate algorithms. |
+
+</div>
+
+## FFI / Interop
+
+Embeds other languages into C.
+
+<div class="table-wrapper" markdown="block">
+
+|Use Case|Recommended Tools|
+|---|---|
+|Python|[**Python/C API**](https://docs.python.org/3/c-api/index.html) <br> The official C API for Python. |
+|JavaScript|[**V8**](https://v8.dev/) <br> Google's open source high-performance JavaScript and WebAssembly engine, really fast but heavyweight. <br> [**QuickJS**](https://bellard.org/quickjs/) <br> A small and embeddable JavaScript engine with competitive performance. <br> [**Duktape**](https://duktape.org/) <br> Even smaller and embeddable JavaScript engine, but less performant. |
+|Lua|[**LuaJIT**](https://luajit.org/) <br> A Just-In-Time Compiler for Lua, with a C API. |
+|Dart|[**Dart Embedding API**](https://dart.dev/server/c-interop-native-extensions) <br> Embed Dart into C/C++ applications. No official documentation, only community examples. |
+
+</div>
 
 ## Graphics
 
 To Be Done
 
-## FFI / Interop
 
-To Be Done
 
