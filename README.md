@@ -2,6 +2,14 @@
 
 An (unofficial) guide to the C ecosystem.
 
+## Website / Where is the guide?
+
+Here: <https://w568w.github.io/blessed-c/>.
+
+## Contributing / How can I add or fix something?
+
+You can open an issue or a pull request. Check [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+
 ## License
 
 ```
