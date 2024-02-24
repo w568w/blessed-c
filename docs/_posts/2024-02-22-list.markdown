@@ -64,10 +64,12 @@ General use case.
 
 |Use Case|Recommended Tools|
 |---|---|
+|Random Number|[**libsodium**](https://github.com/jedisct1/libsodium) <br> libsodium, as a modern and easy-to-use crypto library, also provides a secure random number generator. <br> [**shishua**](https://github.com/espadrine/shishua) <br> Very fast PRNG (non-cryptographic), claimed to be faster than most implementations. Inactively maintained.|
 |UUIDs|[**libuuid**](https://sourceforge.net/p/libuuid) <br> Generates UUIDs. Part of the e2fsprogs (i.e. ext2 filesystem tools) package. Unmaintained for a long time. <br> [**IdGenerator**](https://github.com/yitter/idgenerator/) <br> Fast SnowFlake-based unique ID generator, having C port. Actively maintained but documentation is Chinese only.|
 |Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library.|
 |Logging|[**zlog**](https://github.com/HardySimpson/zlog) <br> High-performance & thread safe logging library. POSIX/Windows compatible. <br> **syslog** <br> GNU C library's syslog helper functions. Available on most Un*x systems, and should be used if you are writing a OS-related tool.|
 |HTTP Request|[**libcurl**](https://curl.se/libcurl/) <br> The most widely used client-side URL transfer library.|
+|Resource Embedding|[**incbin**](https://github.com/graphitemaster/incbin) <br> A simple macro library to embed arbitrary files into source code. |
 |All-In-One Utility|*Sometimes you may want to use a library that does many things in a uniform and portable way. Here are some of them. To keep the list brief, all features cannot be listed here.* <br> [**GLib**](https://gitlab.gnome.org/GNOME/glib/) <br> A general-purpose utility library by GNOME. Widely used. <br> [**APR**](https://apr.apache.org) <br> Apache Portable Runtime, updating infrequently but stable. <br> [**gnulib**](https://www.gnu.org/software/gnulib/) <br> A collection of subroutines used by many GNU programs, also providing system header (e.g. `unistd.h`) polyfills for non-Un*x platforms (e.g. Windows). <br> [**tbox**](https://github.com/tboox/tbox) <br> Independent glib-like portable library, C99-compatible. Works best with [xmake](https://github.com/xmake-io/xmake/) build system from the same author. <br> [**sc**](https://github.com/tezc/sc) <br> Portable, stand-alone, single-header libraries and data structures, C99-compatible. <br> [**stb**](https://github.com/nothings/stb) <br> Famous single-header libraries focusing on multimedia processing and game-dev utils.|
 
 </div>
