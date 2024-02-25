@@ -49,7 +49,7 @@ Tools you may need throughout the development process: development, building, te
 
 |Use Case|Recommended Tools|
 |---|---|
-|Automatic Checker|[**Sanitizers**](https://github.com/google/sanitizers) <br> AddressSanitizer, UndefinedBehaviorSanitizer, MemorySanitizer to detect runtime problems.  <br> [**Valgrind**](http://valgrind.org) <br> A tools suite for debugging and profiling, having similar features to sanitizers. Both are very popular and time-tested.|
+|Automatic Checker|[**Sanitizers**](https://github.com/google/sanitizers) <br> AddressSanitizer, UndefinedBehaviorSanitizer, MemorySanitizer to detect runtime problems.  <br> [**Valgrind**](http://valgrind.org) <br> A tool suite for debugging and profiling, having similar features to sanitizers. Both are very popular and time-tested.|
 |Manual Debugger|[**GDB**](https://www.gnu.org/software/gdb/) <br> The most widely used debugger by GNU for C, as well as Asm, D, Fortran, Go, Rust, OpenCL, and many other languages.  |
 
 </div>
@@ -149,7 +149,7 @@ Most all-in-one utilities also focus on portability. Check them first.
 
 |Use Case|Recommended Tools|
 |---|---|
-|General Case|[**plibsys**](https://github.com/saprykin/plibsys) <br> Highly portable system interface for 15+ OSs and 10+ compilers. Zero-dependency.|
+|General Case|[**plibsys**](https://github.com/saprykin/plibsys) <br> Highly portable system interface for 15+ OSes and 10+ compilers. Zero-dependency.|
 |Backtrace|[**libunwind**](https://github.com/libunwind/libunwind) <br> Introspet the call stack of a program, both local (this process) and remote (another process). Portable among Un*x systems (NOT Windows). <br> [**libbacktrace**](https://github.com/ianlancetaylor/libbacktrace) <br> Similar, but supports all of GNU/Linux, *BSD, macOS and Windows, and only supports local backtrace. Less actively maintained.|
 |Environment Probing|[**whereami**](https://github.com/gpakosz/whereami) <br> Locate the current running executable and the current running module/library on the file system. <br> [**cpu_features**](https://github.com/google/cpu_features) <br> A cross platform library to get cpu features at runtime, C99-compliant.|
 |USB Access|[**libusb**](https://github.com/libusb/libusb) A cross-platform library to access USB devices.|
@@ -164,7 +164,7 @@ Networking is the dullest part of C programming.
 
 |Use Case|Recommended Tools|
 |---|---|
-|Async I/O|[**libuv**](https://github.com/libuv/libuv) <br> Async library for TCP/UDP/DNS/IPC/Singal Handling/File Operations. Primarily developed for Node.js.|
+|Async I/O|[**libuv**](https://github.com/libuv/libuv) <br> Async library for TCP/UDP/DNS/IPC/Singal Handling/File operations. Primarily developed for Node.js.|
 
 </div>
 
@@ -321,7 +321,6 @@ Embeds other languages into C. To embed C into other languages, just check the F
 |---|---|
 |OpenGL|[**GLFW**](https://www.glfw.org/) <br> A cross-platform library for OpenGL, OpenGL ES, and Vulkan, C99-compatible. <br> [**glad**](https://github.com/Dav1dde/glad) <br> Vulkan/GL/GLES/EGL/GLX/WGL Loader-Generator based on the official specs. Usually used with GLFW to generate GL function pointers. |
 |Multi-backend Rendering|[**SDL**](https://www.libsdl.org/) <br> A cross-platform library designed to provide low-level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL, Direct3D, etc. Stable & time-tested. <br> [**raylib**](https://github.com/raysan5/raylib) <br> for games and multimedia programming. Modern & beginner-friendly.|
-|Text Layout|[**HarfBuzz**](https://harfbuzz.github.io/) <br> Text shaping library for single-line shaping, with an emphasis on internationalization. The core of many layout engines today. <br> [**pango**](https://www.pango.org/) <br> Library for laying out and rendering multi-line text correctly. Can be used alone but works best with [Cairo](https://www.cairographics.org/), which is a 2D graphics library inactively maintained. |
-
+|Text Rendering|[**HarfBuzz**](https://harfbuzz.github.io/) <br> Text shaping library, with an emphasis on internationalization. Widely used in many projects and OSes. <br> [**pango**](https://www.pango.org/) <br> Library for laying out multi-line text correctly, depending on HarfBuzz. Can be used alone but works best with a rendering backend, e.g. Cairo or Freetype. <br> [**FreeType**](https://freetype.org/) <br> Font rasterization engine, rendering font files to bitmaps. Widely used in many projects and OSes. |
 
 </div>
