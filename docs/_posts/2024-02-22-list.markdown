@@ -27,7 +27,7 @@ Tools you may need throughout the development process: development, building, te
 |Use Case|Recommended Tools|
 |---|---|
 |Toolchain|[**GCC C Compiler**](https://gcc.gnu.org/) <br> Widely used compiler for Un*x system. <br> [**Clang**](https://clang.llvm.org/) <br> A C frontend that compiles C into LLVM IR. Also very popular. <br> [**MSVC**](https://visualstudio.microsoft.com/) <br> Microsoft's C compiler toolchain, mainly for Windows. |
-|Build System|[**Autotools**](https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html) <br> One of the most widely used build systems (configure && make). <br> [**CMake**](https://cmake.org) <br> The de-facto standard for building modern C/C++ project.|
+|Build System|[**Autotools**](https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html) <br> One of the most widely used build systems (configure && make). <br> [**CMake**](https://cmake.org) <br> The de-facto standard for building modern C/C++ project. <br> **Note:** Also check [meson](https://mesonbuild.com/) and [SCons](https://scons.org/), which are not so popular but have their own advantages. A comparison can be found [here](https://mesonbuild.com/Comparisons.html).|
 |Documentation Generator|[**Doxygen**](https://www.doxygen.nl) <br> The most widely used documentation generator for C. Default theme looks not very attractive but can be customized.|
 
 
@@ -221,6 +221,8 @@ Some all-in-one utilities also contain math and/or scientific subroutines; check
 |Linear Algebra|[**OpenBLAS**](https://github.com/OpenMathLib/OpenBLAS) <br> An optimized BLAS (Basic Linear Algebra Subprograms) library. Mainly supports CPUs. <br> [**CLBlast**](https://github.com/CNugteren/CLBlast) <br> BLAS with OpenCL. Supports GPUs. <br> [**clBLAS**](https://github.com/clMathLibraries/clBLAS) <br> The most famous BLAS library with OpenCL, but unmaintained for a long time. <br> [**cuBLAS**](https://developer.nvidia.com/cublas) <br> NVIDIA's proprietary BLAS library with CUDA. Has the maximum performance on NVIDIA GPUs.|
 |Fourier Transform|[**FFTW**](http://www.fftw.org/) <br> A fast Discrete Fourier transform implementation.|
 |DataFrame|[**Apache Arrow GLib**](https://github.com/apache/arrow/) <br> Official C API for Apache Arrow.|
+|Computer Vision| [**ccv**](https://github.com/liuliu/ccv) <br> A modern computer vision library. |
+|Neural Networks| [**fann**](https://github.com/libfann/fann) <br> Multi-layer artificial neural network library. <br> [**Darknet**](https://github.com/pjreddie/darknet) <br> Fast CNN library from YOLO author. Unmaintained for a long time.|
 
 </div>
 
