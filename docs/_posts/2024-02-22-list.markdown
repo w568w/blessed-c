@@ -92,7 +92,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 
 |Use Case|Recommended Tools|
 |---|---|
-|Dynamic Strings|[**sds**](https://github.com/antirez/sds) <br> Simple Dynamic Strings library. Inactive for a while. |
+|Dynamic Strings|[**sds**](https://github.com/jcorporation/sds) <br> Simple Dynamic Strings library, forked from unmaintained [sds](https://github.com/antirez/sds). |
 |Unicode Support|[**utf8.h**](https://github.com/sheredom/utf8.h) <br> Single-header UTF-8 library mimicking string.h functions. <br> [**ICU**](https://github.com/unicode-org/icu) <br> International Components for Unicode, official Unicode toolkit. Includes String iteration, collation, datetime formatting, parsing, locale-sensitive text segmentation, and more. Much more heavier.|
 |SIMD Acceleration|[**StringZilla**](https://github.com/ashvardanian/StringZilla) <br> SIMD-accelerated string fuzzy matching, edit distance, and more. |
 |Regular Expressions|[**hyperscan**](https://github.com/intel/hyperscan) <br> Intel's high-performance multi-thread text matching library. Use a well-designed callback-style API and may be too complex for simple use cases. <br> [**cre2**](https://github.com/marcomaggi/cre2) <br> C wrapper of Google's re2 library. Easy to use but inactively maintained. <br> [**Onigmo**](https://github.com/k-takata/Onigmo) <br> Standalone regular expression library, a fork of Oniguruma. Easy to use but inactively maintained.|
@@ -152,6 +152,7 @@ Most all-in-one utilities also focus on portability. Check them first.
 |General Case|[**plibsys**](https://github.com/saprykin/plibsys) <br> Highly portable system interface for 15+ OSs and 10+ compilers. Zero-dependency.|
 |Backtrace|[**libunwind**](https://github.com/libunwind/libunwind) <br> Introspet the call stack of a program, both local (this process) and remote (another process). Portable among Un*x systems (NOT Windows). <br> [**libbacktrace**](https://github.com/ianlancetaylor/libbacktrace) <br> Similar, but supports all of GNU/Linux, *BSD, macOS and Windows, and only supports local backtrace. Less actively maintained.|
 |Environment Probing|[**whereami**](https://github.com/gpakosz/whereami) <br> Locate the current running executable and the current running module/library on the file system. <br> [**cpu_features**](https://github.com/google/cpu_features) <br> A cross platform library to get cpu features at runtime, C99-compliant.|
+|USB Access|[**libusb**](https://github.com/libusb/libusb) A cross-platform library to access USB devices.|
 
 </div>
 
@@ -174,6 +175,7 @@ Networking is the dullest part of C programming.
 |---|---|
 |HTTP|[**libmicrohttpd**](https://www.gnu.org/software/libmicrohttpd/) <br> A small library that makes it easy to run an HTTP server. Widely used. <br> [**libhv**](https://github.com/ithewei/libhv) <br> Full-featured async library for TCP/UDP/HTTP(S)/WebSocket client/server/proxy, and MQTT client.|
 |gRPC|**Note**: Unfortunately, there is [no good gRPC library for C](https://github.com/grpc/grpc/issues/23160#issuecomment-646123380). The best way to use gRPC in C is to use the C++ bindings.|
+|Git|[**libgit2**](https://github.com/libgit2/libgit2) <br> A portable, pure C implementation of the Git core methods provided as a re-entrant linkable library.|
 
 </div>
 
