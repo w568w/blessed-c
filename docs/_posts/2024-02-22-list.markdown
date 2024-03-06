@@ -112,6 +112,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 |TOML|[**tomlc99**](https://github.com/cktan/tomlc99) <br> C99-compliant TOML parser.|
 |XML|[**libexpat**](https://github.com/libexpat/libexpat) <br> Fast streaming XML parser, C99-compliant. <br> [**libxml2**](https://gitlab.gnome.org/GNOME/libxml2) <br> GNOME's XML toolkit, standards-compliant and portable, C89-compliant. |
 |HTML|[**lexbor**](https://github.com/lexbor/lexbor) <br> Not just a parser, but a full-featured HTML5 Renderer. It has HTML (de)serialization support. <br> [**myhtml**](https://github.com/lexborisov/myhtml) <br> A standalone HTML parser by the same author of lexbor. It has been deprecated in favor of lexbor.|
+|Protocol Buffer|[**nanopb**](https://github.com/nanopb/nanopb) <br> A protobuf implementation especially designed for embedded systems. |
 
 </div>
 
@@ -173,8 +174,9 @@ Networking is the dullest part of C programming.
 
 |Use Case|Recommended Tools|
 |---|---|
-|HTTP|[**libmicrohttpd**](https://www.gnu.org/software/libmicrohttpd/) <br> A small library that makes it easy to run an HTTP server. Widely used for small projects. <br> [**mongoose**](https://github.com/cesanta/mongoose) <br> A two-file embedded TCP/UDP/SNTP/HTTP/MQTT/WebSocket server, designed for platforms from STM32 to Windows. Very popular, easy to learn and time-tested. <br> [**libhv**](https://github.com/ithewei/libhv) <br> Full-featured async library for TCP/UDP/HTTP(S)/WebSocket client/server/proxy, and MQTT client，with a modern and easy-to-use API. |
+|HTTP|[**libmicrohttpd**](https://www.gnu.org/software/libmicrohttpd/) <br> A small library that makes it easy to run an HTTP server. Widely used for small projects. <br> [**mongoose**](https://github.com/cesanta/mongoose) <br> A two-file embedded TCP/UDP/SNTP/HTTP/MQTT/WebSocket server, designed for platforms from STM32 to Windows. Very popular, easy to learn and time-tested. <br> [**libhv**](https://github.com/ithewei/libhv) <br> Full-featured async library for TCP/UDP/HTTP(S)/WebSocket client/server/proxy, and MQTT client, with a modern and easy-to-use API. |
 |gRPC|**Note**: Unfortunately, there is [no good gRPC library for C](https://github.com/grpc/grpc/issues/23160#issuecomment-646123380). The best way to use gRPC in C is to use the C++ bindings.|
+|General RPC|[**thrift**](https://github.com/apache/thrift) <br> Apache's Thrift RPC framework, having C binding with GLib.|
 |Git|[**libgit2**](https://github.com/libgit2/libgit2) <br> A portable, pure C implementation of the Git core methods provided as a re-entrant linkable library.|
 
 </div>
