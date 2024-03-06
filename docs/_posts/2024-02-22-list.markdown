@@ -111,7 +111,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 |YAML|[**libyaml**](https://github.com/yaml/libyaml) <br> Official YAML parser, but inactive for a while.|
 |TOML|[**tomlc99**](https://github.com/cktan/tomlc99) <br> C99-compliant TOML parser.|
 |XML|[**libexpat**](https://github.com/libexpat/libexpat) <br> Fast streaming XML parser, C99-compliant. <br> [**libxml2**](https://gitlab.gnome.org/GNOME/libxml2) <br> GNOME's XML toolkit, standards-compliant and portable, C89-compliant. |
-|HTML|[**lexbor**](https://github.com/lexbor/lexbor) <br> Not just a parser, but a full-featured HTML5 Renderer. It has HTML (de)serialization support. <br> [**myhtml**](https://github.com/lexborisov/myhtml) <br> A standalone HTML parser by the same author of lexbor. It has been deprecated in favor of lexbor.|
+|HTML|[**lexbor**](https://github.com/lexbor/lexbor) <br> Not just a parser, but a full-featured HTML5 Renderer. It has HTML (de)serialization support, the successor of deprecated parser [myhtml](https://github.com/lexborisov/myhtml) by the same authors. <br> [**libtidy**](https://www.html-tidy.org/) <br> A traditional HTML parser and pretty printer, by W3C members back in the dawn of the WWW. Stable and widely used, but inactive for a while.|
 |Protocol Buffer|[**nanopb**](https://github.com/nanopb/nanopb) <br> A protobuf implementation especially designed for embedded systems. |
 
 </div>
