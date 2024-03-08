@@ -66,7 +66,7 @@ General use case.
 |---|---|
 |Random Number|[**libsodium**](https://github.com/jedisct1/libsodium) <br> libsodium, as a modern and easy-to-use crypto library, also provides a secure random number generator. <br> [**shishua**](https://github.com/espadrine/shishua) <br> Very fast PRNG (non-cryptographic), claimed to be faster than most implementations. Inactively maintained.|
 |UUIDs|[**libuuid**](https://sourceforge.net/p/libuuid) <br> Generates UUIDs. Part of the e2fsprogs (i.e. ext2 filesystem tools) package. Unmaintained for a long time. <br> [**IdGenerator**](https://github.com/yitter/idgenerator/) <br> Fast SnowFlake-based unique ID generator, having C port. Actively maintained but documentation is Chinese only.|
-|Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library.|
+|Gzip (de)compression|[**zlib**](https://github.com/madler/zlib) <br> Official zlib library. Use it if you need great portability and run on old systems. <br> [**zlib-ng**](https://github.com/zlib-ng/zlib-ng) <br> A fork of zlib with many patches for modern hardware and OS. Use it if you need performance.|
 |Logging|[**zlog**](https://github.com/HardySimpson/zlog) <br> High-performance & thread safe logging library. POSIX/Windows compatible. <br> **syslog** <br> GNU C library's syslog helper functions. Available on most Un*x systems, and should be used if you are writing a OS-related tool.|
 |HTTP Request|[**libcurl**](https://curl.se/libcurl/) <br> The most widely used client-side URL transfer library.|
 |Resource Embedding|[**incbin**](https://github.com/graphitemaster/incbin) <br> A simple macro library to embed arbitrary files into source code. |
@@ -83,7 +83,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 
 |Use Case|Recommended Tools|
 |---|---|
-|Generic Collections|[**Collections-C**](https://github.com/srdja/Collections-C) <br> Generic arrays, lists, hashmaps, and more. Use `void *` to store any type of data. <br> [**STC**](https://github.com/stclib/STC) <br> Similar to Collections-C, but uses macros to simulate generics.|
+|Generic Collections|[**Collections-C**](https://github.com/srdja/Collections-C) <br> Generic arrays, lists, hashmaps, and more. Uses `void *` to store any type of data. <br> [**STC**](https://github.com/stclib/STC) <br> Similar to Collections-C, but uses macro definitions to simulate generics. <br> [**klib**](https://github.com/attractivechaos/klib) <br> Uses macro functions to simulate generics. |
 
 </div>
 
@@ -95,7 +95,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 |Dynamic Strings|[**sds**](https://github.com/jcorporation/sds) <br> Simple Dynamic Strings library, forked from unmaintained [sds](https://github.com/antirez/sds). |
 |Unicode Support|[**utf8.h**](https://github.com/sheredom/utf8.h) <br> Single-header UTF-8 library mimicking string.h functions. <br> [**ICU**](https://github.com/unicode-org/icu) <br> International Components for Unicode, official Unicode toolkit. Includes String iteration, collation, datetime formatting, parsing, locale-sensitive text segmentation, and more. Much more heavier.|
 |SIMD Acceleration|[**StringZilla**](https://github.com/ashvardanian/StringZilla) <br> SIMD-accelerated string fuzzy matching, edit distance, and more. |
-|Regular Expressions|[**hyperscan**](https://github.com/intel/hyperscan) <br> Intel's high-performance multi-thread text matching library. Use a well-designed callback-style API and may be too complex for simple use cases. <br> [**cre2**](https://github.com/marcomaggi/cre2) <br> C wrapper of Google's re2 library. Easy to use but inactively maintained. <br> [**Onigmo**](https://github.com/k-takata/Onigmo) <br> Standalone regular expression library, a fork of Oniguruma. Easy to use but inactively maintained.|
+|Regular Expressions (Regex)|[**hyperscan**](https://github.com/intel/hyperscan) <br> Intel's high-performance multi-thread text matching library. Use a well-designed callback-style API and may be too complex for simple use cases. <br> [**cre2**](https://github.com/marcomaggi/cre2) <br> C wrapper of Google's re2 library. Easy to use but inactively maintained. <br> [**oniguruma**](https://github.com/kkos/oniguruma) <br> Standalone regular expression library. Easy to use.|
 
 </div>
 
@@ -106,7 +106,7 @@ Also please take a look at all-in-one utility libraries in the previous section,
 |Use Case|Recommended Tools|
 |---|---|
 |CSV|[**zsv**](https://github.com/liquidaty/zsv) <br> Fast (simd) CSV parser.|
-|JSON|**Note:** [Here](https://github.com/miloyip/nativejson-benchmark) is a performance benchmark of most C/C++ JSON parser. <br> [**cJSON**](https://github.com/DaveGamble/cJSON) <br> Two-file, ultralightweight JSON parser in C89. Suitable for embedded systems, not thread safe. <br> [**json-c**](https://github.com/json-c/json-c) <br> A formal, high-performance JSON parser, with multi-threaded support.|
+|JSON|**Note:** [Here](https://github.com/miloyip/nativejson-benchmark) is a performance benchmark of most C/C++ JSON parser. <br> [**cJSON**](https://github.com/DaveGamble/cJSON) <br> Two-file, ultralightweight JSON parser in C89. Suitable for embedded systems, not thread safe. <br> [**json-c**](https://github.com/json-c/json-c) <br> A formal, high-performance JSON parser, with multi-threaded support. <br> [**yyjson**](https://github.com/ibireme/yyjson) <br> A two-file high-performance JSON parser in C89, with SIMD acceleration, claiming to be faster than C++'s [simdjson](https://github.com/simdjson/simdjson). Newer and less popular than above.|
 |INI|[**inih**](https://github.com/benhoyt/inih) <br> Single header INI file parser, good for embedded systems.  |
 |YAML|[**libyaml**](https://github.com/yaml/libyaml) <br> Official YAML parser, but inactive for a while.|
 |TOML|[**tomlc99**](https://github.com/cktan/tomlc99) <br> C99-compliant TOML parser.|
@@ -127,6 +127,7 @@ Try to add (or "simulate") some modern language features to C.
 |Object-Oriented Programming|[**GObject**](https://docs.gtk.org/gobject) <br> The type system and object class support, primarily for GTK. Requires GLib.|
 |Better Macros|[**metalang99**](https://github.com/Hirrolot/metalang99) <br> Provides macros with compile-time list generation, recursion, overloading features.|
 |Checked Integer Arithmetic|[**safe_math**](https://github.com/dcleblanc/SafeInt) <br> Integer arithmetic with overflow checking. It is a C port of C++ library SafeInt, which is [recommended by Microsoft](https://learn.microsoft.com/en-us/cpp/safeint/safeint-library?view=msvc-170). Inactive for a while.|
+|Concurrency|**Note**: This part needs discussion. The author (me) has no experience in C concurrency. <br> [**libcsp**](https://libcsp.dev/) <br> A high-level concurrency library for C, inspired by Go. Inactive for a while.|
 
 </div>
 
@@ -207,6 +208,7 @@ C has incredibly complete support for databases, but it's not as easy as using o
 |Redis|[**Hiredis**](https://github.com/redis/hiredis) <br> Minimalistic C client for Redis >= 1.2, officially supported. <br> [**Hiredis-cluster**](https://github.com/Nordix/hiredis-cluster) <br> for cluster deployments of the Redis database.|
 |MongoDB|[**libmongoc**](https://github.com/mongodb/mongo-c-driver/) <br> Official MongoDB C driver.|
 |Rocks DB|[**rocksdb**](https://github.com/facebook/rocksdb) <br> Official RocksDB library for C/C++.|
+|Embedded DBs|[**EJDB**](https://github.com/Softmotions/ejdb) <br> An embeddable JSON database engine. |
 
 </div>
 
@@ -226,7 +228,7 @@ Some all-in-one utilities also contain math and/or scientific subroutines; check
 |Fourier Transform|[**FFTW**](http://www.fftw.org/) <br> A fast Discrete Fourier transform implementation.|
 |DataFrame|[**Apache Arrow GLib**](https://github.com/apache/arrow/) <br> Official C API for Apache Arrow.|
 |Computer Vision| [**ccv**](https://github.com/liuliu/ccv) <br> A modern computer vision library. |
-|Neural Networks| [**fann**](https://github.com/libfann/fann) <br> Multi-layer artificial neural network library. Inactive for a long time. <br> [**Darknet**](https://github.com/pjreddie/darknet) <br> Fast CNN library from YOLO author. Unmaintained for a long time.|
+|Neural Networks| [**ggml**](https://github.com/ggerganov/ggml) <br> Tensor library for machine learning, especially for large language models. <br> [**Darknet**](https://github.com/pjreddie/darknet) <br> Fast CNN library from YOLO author. Unmaintained for a long time.|
 
 </div>
 
@@ -250,7 +252,7 @@ Some all-in-one utilities also contain math and/or scientific subroutines; check
 |Use Case|Recommended Tools|
 |---|---|
 |Progress indicators| [**progressbar**](https://github.com/doches/progressbar) <br>  An easy-to-use C library for displaying text progress bars. Inactive for a while.|
-|TUI|[**ncurses**](https://gnu.org/software/ncurses) <br> De facto standard library for TUI. Only Un*x support. <br> [**pdcurses**](https://github.com/wmcbrine/PDCurses) <br> A curses implementation for DOS, OS/2, Windows console, X11 and SDL. |
+|TUI|[**ncurses**](https://gnu.org/software/ncurses) <br> De facto standard library for TUI. Only Un*x support. <br> [**pdcurses**](https://github.com/wmcbrine/PDCurses) <br> A curses implementation for DOS, OS/2, Windows console, X11 and SDL. <br> [**notcurses**](https://github.com/dankamongmen/notcurses) <br> A newer TUI/terminal graphic library if you don't want curses. |
 |Interactive prompts| [**readline**](https://www.gnu.org/software/readline/) <br> De facto standard GNU library for interactive inputs. Bash is actually built on it, which supports history, completion, and line editing features. <br> [**linenoise**](https://github.com/antirez/linenoise) <br> A small, self-contained alternative to readline and libedit. Only Un*x support, and being inactive for a while.|
 
 </div>
@@ -279,6 +281,7 @@ If you are looking for a specific algorithm implementation, you should check eac
 |Password Hashing|[**libsodium**](https://libsodium.gitbook.io/doc/) <br> An easy-to-use software library for encryption, decryption, signatures, password hashing, having a very modern and beginner-friendly API. |
 |TLS/SSL|[**OpenSSL**](https://www.openssl.org/) <br> The de-facto standard implementation for modern cryptography. Provides a full-featured toolkit for the TLS and SSL, also with a lot of cryptographic and certificate algorithms. |
 |Non-cryptographic Hashing|[**xxHash**](https://github.com/Cyan4973/xxHash) <br> A fast non-cryptographic hash algorithm and implementation, claiming to be faster than memcpy. <br> [**highwayhash**](https://github.com/google/highwayhash) <br> from Google (simd), also quite fast. |
+|Post-Quantum Cryptography|[**liboqs**](https://github.com/open-quantum-safe/liboqs) <br> Experimental implementation of quantum-resistant cryptographic algorithms. |
 
 </div>
 
@@ -294,6 +297,7 @@ Embeds other languages into C. To embed C into other languages, just check the F
 |JavaScript|[**V8**](https://v8.dev/) <br> Google's open source high-performance JavaScript and WebAssembly engine, really fast but heavyweight. <br> [**QuickJS**](https://bellard.org/quickjs/) <br> A small and embeddable JavaScript engine with competitive performance. <br> [**Duktape**](https://duktape.org/) <br> Even smaller and embeddable JavaScript engine (only 2 files), but less performant. |
 |Lua|[**LuaJIT**](https://luajit.org/) <br> A Just-In-Time Compiler for Lua, with a C API. |
 |Dart|[**Dart Embedding API**](https://dart.dev/server/c-interop-native-extensions) <br> Embed Dart into C/C++ applications. No official documentation, only community examples. |
+|Wrapper Generator|[**SWIG**](http://www.swig.org/) <br> Simplifies the task of interfacing different languages to C and C++ programs. |
 
 </div>
 
